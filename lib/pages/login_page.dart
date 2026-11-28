@@ -5,6 +5,7 @@ import '../widgets/common_widgets.dart';
 import 'register_page.dart';
 import 'password_pages.dart';
 import 'patient_dashboard.dart';
+import 'splash_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -71,7 +72,11 @@ class _LoginPageState extends State<LoginPage> {
 
                 IconButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    } else {
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const SplashPage()));
+                    }
                   },
                   icon: const Icon(
                     Icons.arrow_back_ios_new,
