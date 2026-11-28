@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'pages/welcome_page.dart';
+import 'pages/splash_page.dart';
 import 'widgets/common_widgets.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class DoseIQApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'DoseIQ',
+      title: 'MediCue',
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
@@ -22,7 +22,7 @@ class DoseIQApp extends StatelessWidget {
           seedColor: AppColors.primary,
         ),
       ),
-      home: const WelcomePage(),
+      home: const SplashPage(),
     );
   }
 }

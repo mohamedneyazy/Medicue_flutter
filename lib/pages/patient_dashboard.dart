@@ -243,7 +243,7 @@ class _PatientDashboardState extends State<PatientDashboard> {
             ),
             const SizedBox(width: 10),
             const Text(
-              'DoseIQ',
+              'MediCue',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

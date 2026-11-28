@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 
+import 'animated_medicue_logo.dart';
+
 // COLORS
 
 class AppColors {
-  static const Color primary = Color(0xFF159FA9);
-  static const Color dark = Color(0xFF123D68);
+  static const Color primary = Color(0xFF00B4C8);
+  static const Color dark = Color(0xFF0B3870);
   static const Color lightBlue = Color(0xFFEAF7FC);
   static const Color background = Color(0xFFF5FAFC);
   static const Color border = Color(0xFFDCECF3);
   static const Color textGrey = Color(0xFF71869A);
 }
 
-// DOSEIQ LOGO
+// MEDICUE LOGO
 
 class DoseLogo extends StatelessWidget {
   final double height;
@@ -23,10 +25,9 @@ class DoseLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/doseiq_logo.png',
+    return AnimatedMediCueLogo(
       height: height,
-      fit: BoxFit.contain,
+      showAmbientGlow: false,
     );
   }
 }

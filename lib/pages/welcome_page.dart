@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/animated_medicue_logo.dart';
 import '../widgets/common_widgets.dart';
 import 'login_page.dart';
+import 'splash_page.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
@@ -17,71 +19,92 @@ class WelcomePage extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: AppColors.lightBlue,
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color(0xFFF2FBFE),
+                      AppColors.lightBlue,
+                    ],
+                  ),
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(45),
                     bottomRight: Radius.circular(45),
                   ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Spacer(),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const SizedBox(height: 12),
 
-                    // Original medical illustration
-                    Container(
-                      width: 190,
-                      height: 190,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(100),
-                      ),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          const Icon(
-                            Icons.favorite,
-                            size: 145,
-                            color: Color(0xFFD9F1F2),
-                          ),
-                          const Icon(
-                            Icons.medication,
-                            size: 80,
-                            color: AppColors.primary,
-                          ),
-                          Positioned(
-                            right: 28,
-                            bottom: 38,
-                            child: Container(
-                              padding: const EdgeInsets.all(9),
-                              decoration: const BoxDecoration(
-                                color: AppColors.dark,
-                                shape: BoxShape.circle,
+                      // Top bar with Replay Splash button
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton.icon(
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const SplashPage(),
                               ),
-                              child: const Icon(
-                                Icons.access_time,
-                                color: Colors.white,
-                                size: 27,
-                              ),
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            foregroundColor: AppColors.dark,
+                            backgroundColor:
+                                Colors.white.withValues(alpha: 0.85),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
                             ),
                           ),
-                        ],
+                          icon: const Icon(
+                            Icons.auto_awesome_rounded,
+                            size: 16,
+                            color: AppColors.primary,
+                          ),
+                          label: const Text(
+                            'Replay Splash',
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
 
-                    const SizedBox(height: 25),
+                      const Spacer(),
 
-                    const Text(
-                      'Take Care. Live Better.',
-                      style: TextStyle(
-                        color: AppColors.dark,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
+                      // Animated MediCue Logo floating directly on the background
+                      const Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 10,
+                          vertical: 16,
+                        ),
+                        child: AnimatedMediCueLogo(
+                          height: 120,
+                        ),
                       ),
-                    ),
 
-                    const Spacer(),
-                  ],
+                      const SizedBox(height: 24),
+
+                      const Text(
+                        'Take Care. Live Better.',
+                        style: TextStyle(
+                          color: AppColors.dark,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+
+                      const Spacer(),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -98,7 +121,7 @@ class WelcomePage extends StatelessWidget {
                   children: [
                     const Text(
                       'Your smart medicine reminder '
-                          'for a healthier tomorrow.',
+                      'for a healthier tomorrow.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: AppColors.dark,
@@ -110,7 +133,7 @@ class WelcomePage extends StatelessWidget {
                     PrimaryButton(
                       text: 'Get Started',
                       onPressed: () {
-                        Navigator.pushReplacement(
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (_) => const LoginPage(),
@@ -131,7 +154,7 @@ class WelcomePage extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushReplacement(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (_) => const LoginPage(),

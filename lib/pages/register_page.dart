@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/common_widgets.dart';
+import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -176,7 +177,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 5),
 
                 const Text(
-                  'Join DoseIQ and take control of your health.',
+                  'Join MediCue and take control of your health.',
                   style: TextStyle(
                     color: AppColors.textGrey,
                     fontSize: 13,
@@ -330,7 +331,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
 
                     TextButton(
-                      onPressed: () => Navigator.pop(context),
+                      onPressed: () => Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => const LoginPage())),
                       child: const Text(
                         'Log In',
                         style: TextStyle(
